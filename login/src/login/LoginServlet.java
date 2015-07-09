@@ -40,7 +40,8 @@ public class LoginServlet extends HttpServlet {
         else throw new ServletException("DB Connection error");
     }
  
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
  
         // Get request parameters for UserLogin and PassWord.
         String UserLogin = request.getParameter("UserLogin");
@@ -60,7 +61,7 @@ public class LoginServlet extends HttpServlet {
         else
         {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-            PrintWriter out= response.getWriter();
+            PrintWriter out = response.getWriter();
             out.println("<font color=red>Either user name or password is wrong.</font>");
             rd.include(request, response);        
         }      

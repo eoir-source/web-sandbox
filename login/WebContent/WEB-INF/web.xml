@@ -4,6 +4,14 @@
   <welcome-file-list>
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>login.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
   <context-param>
   <param-name>dbURL</param-name>
   <param-value>jdbc:mysql://localhost/mysql_db</param-value>
