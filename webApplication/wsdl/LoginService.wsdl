@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LoginService" targetNamespace="http://service.web.com.webApplication/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.web.com.webApplication/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.web.com.webApplication/" schemaLocation="LoginService_schema1.xsd"></import>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="authenticateResponse">
+    <wsdl:part name="parameters" element="tns:authenticateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticate">
+    <wsdl:part name="parameters" element="tns:authenticate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Login">
+    <wsdl:operation name="authenticate">
+      <wsdl:input name="authenticate" message="tns:authenticate">
+    </wsdl:input>
+      <wsdl:output name="authenticateResponse" message="tns:authenticateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoginServiceSoapBinding" type="tns:Login">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="authenticate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="authenticateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoginService">
+    <wsdl:port name="LoginPort" binding="tns:LoginServiceSoapBinding">
+      <soap:address location="http://localhost:9090/LoginPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
