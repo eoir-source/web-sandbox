@@ -11,7 +11,6 @@ import java.io.*;
 import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.jws.WebService;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet(
@@ -19,8 +18,7 @@ import javax.servlet.annotation.WebServlet;
         urlPatterns = { "/Login" }
 		)
 
-@WebService()
-public class Login extends HttpServlet implements AccountRetrieval
+public class Login extends HttpServlet
 {	
 	private static final long serialVersionUID = 1L;
     
@@ -120,10 +118,4 @@ public class Login extends HttpServlet implements AccountRetrieval
 			se.printStackTrace();
 		}
     }
-    // The “backend” service that retrieves the user's bank account info from a database.
-	public Info getInfo(String accountUSER)
-	{
-		Info accountInfo = new Info();
-		// .....
-	}
 }
