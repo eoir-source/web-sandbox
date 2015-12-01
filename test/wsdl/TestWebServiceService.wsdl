@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TestWebServiceService" targetNamespace="http://test/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://test/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://test/" schemaLocation="TestWebServiceService_schema1.xsd"></import>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getInfoResponse">
+    <wsdl:part name="parameters" element="tns:getInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInfo">
+    <wsdl:part name="parameters" element="tns:getInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TestWebService">
+    <wsdl:operation name="getInfo">
+      <wsdl:input name="getInfo" message="tns:getInfo">
+    </wsdl:input>
+      <wsdl:output name="getInfoResponse" message="tns:getInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestWebServiceServiceSoapBinding" type="tns:TestWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestWebServiceService">
+    <wsdl:port name="TestWebServicePort" binding="tns:TestWebServiceServiceSoapBinding">
+      <soap:address location="http://localhost:9090/TestWebServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
